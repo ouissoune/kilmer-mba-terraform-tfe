@@ -1,9 +1,10 @@
 terraform {
   cloud {
-    organization = "<your-organization-name>"
+    hostname     = "app.terraform.io"
+    organization = "ilyasoi"
 
     workspaces {
-      name = "fem-eci-workspace"
+      name = "fem-eci-tfe"
     }
   }
 }
