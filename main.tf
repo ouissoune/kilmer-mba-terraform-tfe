@@ -20,14 +20,10 @@ module "workspace" {
   name              = each.key
   organization_name = var.organization_name
   project_id        = each.value.project_id
+
+  vcs_repo = {
+    github_app_installation_id = data.tfe_github_app_installation.this.id
+    identifier = each.value.vcs_repo_identifier
+  }
 }
 
-moved {
-  from = module.workspace
-  to   = module.workspace["fem-eci-tfe"]
-}
-
-moved {
-  from = module.project
-  to   = module.project["fem-eci-project"]
-}
