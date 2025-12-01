@@ -8,16 +8,16 @@ locals {
   workspace = {
     "fem-eci-tfe" = {
       description    = "Example automation workspace for Terraform Cloud resources."
-      execution_mode = "remote"
+      execution_mode = "local"
       project_id     = module.project["fem-eci-project"].id
-      vcs_repo_identifier = "${var.organization_name}/fem-eci-terraform-tfe"
+      vcs_repo_identifier = "${var.github_organization_name}/fem-eci-terraform-tfe"
     }
 
     "fem-eci-github" = {
       description    = "Example automation workspace for Terraform Cloud resources."
       execution_mode = "local"
       project_id     = module.project["fem-eci-project"].id
-      vcs_repo_identifier = "${var.organization_name}/fem-eci-terraform-github"
+      vcs_repo_identifier = "${var.github_organization_name}/fem-eci-terraform-github"
     }
   }
 }
