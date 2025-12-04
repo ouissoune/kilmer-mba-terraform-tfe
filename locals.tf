@@ -34,7 +34,7 @@ locals {
           sensitive    = false
         },
         {
-          key          = "name"
+          key          = "rg_name"
           value        = "mba"
           category     = "terraform"
           hcl          = false
@@ -51,15 +51,15 @@ locals {
       variables = [
         {
           key         = "organization_name"
-          value       = var.organization_name
-          category     = "env"
-          hcl         = true
+          value       = "ilyasoi"
+          category     = "terraform"
+          hcl         = false
           sensitive   = false
         },
         {
           key         = "rg_workspace_name"
           value       = "kilmer-mba-rg"
-          category     = "env"
+          category     = "terraform"
           hcl         = false
           sensitive   = false
         },
