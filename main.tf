@@ -33,18 +33,3 @@ moved {
   from = module.workspace["fem-eci-tfe"]
   to   = module.workspace["kilmer-mba-tfe"]
 }
-
-moved {
-  from = module.workspace["fem-eci-github"]
-  to   = module.workspace["kilmer-mba-github"]
-}
-
-moved {
-  from = module.workspace["fem-eci-azure-network"]
-  to   = module.workspace["kilmer-mba-azure-network"]
-}
-
-moved {
-  from = module.workspace["fem-eci-tfe"]
-  to   = module.workspace["kilmer-mba-tfe"]
-}
