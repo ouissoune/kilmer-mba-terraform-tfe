@@ -6,25 +6,25 @@ locals {
   }
 
   workspace = {
-    "fem-eci-tfe" = {
+    "kilmer-mba-tfe" = {
       description    = "Example automation workspace for Terraform Cloud resources."
       execution_mode = "remote"
       project_id     = module.project["fem-eci-project"].id
-      vcs_repo_identifier = "${var.github_organization_name}/fem-eci-terraform-tfe"
+      vcs_repo_identifier = "${var.github_organization_name}/kilmer-mba-terraform-tfe"
     }
 
-    "fem-eci-github" = {
+    "kilmer-mba-github" = {
       description    = "Example automation workspace for Terraform Cloud resources."
       execution_mode = "remote"
       project_id     = module.project["fem-eci-project"].id
-      vcs_repo_identifier = "${var.github_organization_name}/fem-eci-terraform-github"
+      vcs_repo_identifier = "${var.github_organization_name}/kilmer-mba-terraform-github"
     }
 
-    "fem-eci-azure-network" = {
+    "kilmer-mba-azure-network" = {
       description = "Automation for Azure network resources"
       execution_mode = "remote"
       project_id = module.project["fem-eci-project"].id
-      vcs_repo_identifier = "${var.github_organization_name}/fem-eci-terraform-azure-network"
+      vcs_repo_identifier = "${var.github_organization_name}/kilmer-mba-terraform-azure-network"
       variables = [
         {
           key          = "location"
