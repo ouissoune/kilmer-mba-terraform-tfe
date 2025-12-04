@@ -62,7 +62,7 @@ locals {
         },
         {
           key          = "subnets"
-          value        = <<EOT
+          value = replace(trimspace(<<EOT
             {
               "subnet-aks" = {
                 new_bits = 8
@@ -73,6 +73,7 @@ locals {
               }
             }
             EOT
+          ), "\r\n", "\n")
           category     = "terraform"
           hcl          = true
           sensitive    = false
