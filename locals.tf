@@ -8,7 +8,7 @@ locals {
   workspace = {
     "kilmer-mba-tfe" = {
       description    = "Example automation workspace for Terraform Cloud resources."
-      execution_mode = "local"
+      execution_mode = "remote"
       project_id     = module.project["fem-eci-project"].id
       vcs_repo_identifier = "${var.github_organization_name}/kilmer-mba-terraform-tfe"
     }
@@ -20,11 +20,11 @@ locals {
       vcs_repo_identifier = "${var.github_organization_name}/kilmer-mba-terraform-github"
     }
 
-    "kilmer-mba-azure-network" = {
-      description = "Automation for Azure network resources"
+    "kilmer-mba-rg" = {
+      description    = "Example automation workspace for Terraform Cloud resources."
       execution_mode = "remote"
-      project_id = module.project["fem-eci-project"].id
-      vcs_repo_identifier = "${var.github_organization_name}/kilmer-mba-terraform-azure-network"
+      project_id     = module.project["fem-eci-project"].id
+      vcs_repo_identifier = "${var.github_organization_name}/kilmer-mba-terraform-azure-rg"
       variables = [
         {
           key          = "location"
@@ -34,8 +34,43 @@ locals {
           sensitive    = false
         },
         {
+          key          = "name"
+          value        = "mba"
+          category     = "terraform"
+          hcl          = false
+          sensitive    = false
+        }
+      ]
+    }
+
+    "kilmer-mba-azure-network" = {
+      description = "Automation for Azure network resources"
+      execution_mode = "remote"
+      project_id = module.project["fem-eci-project"].id
+      vcs_repo_identifier = "${var.github_organization_name}/kilmer-mba-terraform-azure-network"
+      variables = [
+        {
+          key         = "organization_name"
+          value       = var.organization_name
+          hcl         = true
+          sensitive   = false
+        },
+        {
+          key         = "rg_workspace_name"
+          value       = "kilmer-mba-rg"
+          hcl         = false
+          sensitive   = false
+        },
+        {
+          key          = "location"
+          value        = "spaincentral"
+          category     = "terraform"
+          hcl          = false
+          sensitive    = false
+        },
+        {
           key          = "rg_name"
-          value        = "myResourceGroup"
+          value        = "mba"
           category     = "terraform"
           hcl          = false
           sensitive    = false
