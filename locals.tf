@@ -52,12 +52,14 @@ locals {
         {
           key         = "organization_name"
           value       = var.organization_name
+          category     = "terraform"
           hcl         = true
           sensitive   = false
         },
         {
           key         = "rg_workspace_name"
           value       = "kilmer-mba-rg"
+          category     = "terraform"
           hcl         = false
           sensitive   = false
         },
